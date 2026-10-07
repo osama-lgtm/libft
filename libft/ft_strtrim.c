@@ -15,67 +15,32 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static  size_t   start_index(char const *a, char const *set)
+static int	is_in_set(char c, const char *set)
 {
-    size_t  i;
-    size_t  st;
+	size_t	i;
 
-    st = 0;
-    i = 0;
-    while(a[st])
-    {
-        while(set[i])
-        {
-            if(set[i] == a[st])
-                break;
-            i++;
-        }
-        if(i == ft_strlen(set) - 1)
-            return (st + 1);
-        st++;
-    }
-    return (0);
-}
-
-static  size_t  end_index(char const *a, char const *set)
-{
-    size_t i;
-    size_t en;
-
-    en = ft_strlen(a) - 1;
-    i = 0;
-    while(en >= 0)
-    {
-        while (set[i])
-        {
-            if (set[i] == a[en])
-                break;
-            i++;
-        }
-        if (i == ft_strlen(set) - 1)
-            return (en - 1);
-        en--;
-    }
-    return (0);
-}
-
-char    *ft_strtrim(char const *s1, char const *set)
-{
-    char    *S;
-    size_t  en;
-    size_t  st;
-
-    st = start_index(s1, set);
-    en = end_index(s1, set);
-    S = malloc(en - st);
-    S = ft_substr(s1, (unsigned int)st, en - st);
-    return (S);
-}
-
-int main(void)
-{
-	char *str = "sosamas";
-	char *set = "s";
-	printf("%s",ft_strtrim(str, set));
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
 	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	start;
+	size_t	end;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && is_in_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && is_in_set(s1[end - 1], set))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
