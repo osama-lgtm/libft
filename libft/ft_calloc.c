@@ -14,10 +14,14 @@
 #include <stddef.h>
 void *ft_calloc(size_t nmemb, size_t size)
 {
-    size_t i;
+    size_t bytes;
+
+    bytes = nmemb * size;
+    if(nmemb != 0 && bytes / nmemb != size)
+        return(NULL);
     unsigned char *p = malloc(nmemb * size);
-    i = 0;
-    while(i < nmemb * size)
-        p[i++] = 0;
+    if(p == NULL)
+        return (malloc(0));
+    ft_bzero(p, nmemb * size);
     return (p);
 }

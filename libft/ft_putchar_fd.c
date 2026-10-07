@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojamleh <ojamleh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:10:49 by ojamleh           #+#    #+#             */
-/*   Updated: 2026/10/07 15:29:36 by ojamleh          ###   ########.fr       */
+/*   Created: 2026/10/07 15:31:58 by ojamleh           #+#    #+#             */
+/*   Updated: 2026/10/07 15:41:11 by ojamleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+void    ft_putchar_fd(char c, int fd)
 {
-    int i;
-    char const *str;
-
-    i = 0;
-    str = malloc(len);
-    while (len > 0)
-    {
-        str[i] = s[start];
-        start++;
-        len--;
-        i++;
-    }
-    return (str);
+    write(fd, c, 1);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojamleh <ojamleh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 15:10:49 by ojamleh           #+#    #+#             */
-/*   Updated: 2026/10/07 15:29:36 by ojamleh          ###   ########.fr       */
+/*   Created: 2026/10/07 15:47:42 by ojamleh           #+#    #+#             */
+/*   Updated: 2026/10/07 15:50:32 by ojamleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+void ft_putnbr_fd(int n, int fd)
 {
-    int i;
-    char const *str;
+    char	c;
 
-    i = 0;
-    str = malloc(len);
-    while (len > 0)
-    {
-        str[i] = s[start];
-        start++;
-        len--;
-        i++;
-    }
-    return (str);
+	if (nb == -2147483648)
+	{
+		write (1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		write (1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	c = nb % 10 + '0';
+	write (fd, &c, 1);
 }
