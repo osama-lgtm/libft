@@ -17,3 +17,4 @@ int	ft_isdigit(int a)
 	else
 		return (0);
 }
+//jjhhg
