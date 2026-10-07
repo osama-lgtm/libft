@@ -10,18 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 char	*ft_strdup(const char *str1)
 {
-	int	i = 0;
-	while (str1[i] != '\0')
-		i++;
-	char *str2 = malloc(sizeof(char) * (i + 1));
-	i = 0;
-	while(str1[i] != '\0')
+	char *str2;
+	int	len;
+	len = ft_strlen(str1);
+	str2 = malloc(sizeof(char) * (len + 1));
+	if (!str2)
+		return (NULL);
+	len = 0;
+	while(str1[len] != '\0')
 	{
-		str2[i] = str1[i];
-		i++;
+		str2[len] = str1[len];
+		len++;
 	}
-	str2[i] = '\0';
-	return str2;
+	str2[len] = '\0';
+	return (str2);
 }

@@ -19,9 +19,9 @@ void *ft_calloc(size_t nmemb, size_t size)
     bytes = nmemb * size;
     if(nmemb != 0 && bytes / nmemb != size)
         return(NULL);
-    unsigned char *p = malloc(nmemb * size);
+    unsigned char *p = malloc(bytes);
     if(p == NULL)
         return (malloc(0));
-    ft_bzero(p, nmemb * size);
+    ft_bzero(p, bytes);
     return (p);
 }

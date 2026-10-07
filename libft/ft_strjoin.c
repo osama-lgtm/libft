@@ -11,40 +11,22 @@
 /* ************************************************************************** */
 
 
-char *ft_strjoin(char const *s1, char const *s2)
+#include <stdlib.h>
+
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    char const *S;
-    size_t  i;
-    size_t  d;
+	char	*s;
+	size_t	i;
+	size_t	j;
 
-    i = ft_strlen(s1);
-    d = ft_strlen(s2);
-    S = malloc((i + d) * sizeof(char));
-    ft_strcpy(S,s1);
-    
-    ft_strcat(S,s2);
-    return (S);
+	if (!s1 || !s2)
+		return (NULL);
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	s = malloc(sizeof(char) * (i + j + 1));
+	if (!s)
+		return (NULL);
+	ft_strcpy(s, s1);
+	ft_strcat(s, s2);
+	return (s);
 }
-
-/*
-    while (s1[i])
-        i++;
-    while (s2[d])
-        d++;
-*/
-/*while (i > 0)
-    {
-        *S = *s1;
-        S++;
-        s1++;
-        i--;
-    }
-*/
-/*while (d > 0)
-    {
-        *S = *s2;
-        S++;
-        s2++;
-        d--;
-    }
-*/
