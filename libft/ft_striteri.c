@@ -1,4 +1,15 @@
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+#include "libft.h"
+#include <stddef.h>
+
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    
+    size_t i;
+    if(!s || !f)
+        return;
+    i = 0;
+    while(s[i])
+    {
+        f(i, s[i]);
+        i++;
+    }
 }
