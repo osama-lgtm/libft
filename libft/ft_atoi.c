@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -39,6 +40,6 @@ int	ft_atoi(const char *str)
 /*
 int main()
 {
-	printf("%d", ft_atoi("+123"));
+	printf("%d", ft_atoi("   \n\t-1\n23"));
 	return (0);
 }*/

@@ -26,5 +26,6 @@ char	*ft_strcat(char *text, const char *cat)
 		text[i + a] = cat[a];
 		a++;
 	}
+	text[a + i] = '\0';
 	return (text);
 }

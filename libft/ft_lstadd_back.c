@@ -27,3 +27,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	last->next = new;
 	new->next = NULL;
 }
+/*
+int main()
+{
+	t_list *n1;
+	t_list *n2;
+	t_list *last;
+	last->content = "is osama";
+	n1->content = "my";
+	n2->content = "name";
+	n1->next = n2;
+	n2->next = NULL;
+	ft_lstadd_back(&n1, last);
+	for(int i = 0;i < 3; i++)
+	{
+		printf("%s ", n1->content);
+		n1 = n1->next;
+	}
+}*/

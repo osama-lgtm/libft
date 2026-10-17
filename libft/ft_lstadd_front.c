@@ -19,3 +19,23 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	new->next = *lst;
 	*lst = new;
 }
+/*
+int main()
+{
+		t_list *n1;
+	t_list *n2;
+	t_list *first;
+	first->content = "my";
+	n1 = ft_lstnew("name");
+	n2->content = "is osama";
+	n1->next = n2;
+	n2->next = NULL;
+	ft_lstadd_front(&n1, first);
+
+	for(int i = 0;i < 3; i++)
+	{
+		printf("%s ", first->content);
+		first = first->next;
+	}
+}
+*/

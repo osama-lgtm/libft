@@ -29,11 +29,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 /*
 int main()
 {
-    int *arr = ft_calloc(5, sizeof(int));
+    int *arr = ft_calloc(4, sizeof(char));
     for(int i = 0; i < 5; i++)
-    {
         printf("%d ", arr[i]);
-    }
     free(arr);
     return 0;
-}*/
+}
+*/

@@ -18,15 +18,41 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!lst || !*lst)
 		return ;
-	if (del)
+	while (*lst)
 	{
-		while (temp)
-		{
-			temp = (*lst)->next;
-			del(temp->content);
-			free(temp);
-			temp = temp->next;
-		}
-		(*lst)->next = NULL;
+		temp = (*lst)->next;
+		if (del)
+			del((*lst)->content);
+		free(*lst);
+		*lst = temp;
 	}
+		*lst = NULL;
+}
+
+int main()
+{
+	t_list *n1;
+	t_list *n2;
+	t_list *n3;
+	t_list *n4;
+	n1 = ft_lstnew(ft_strdup("osama"));
+    n2 = ft_lstnew(ft_strdup("ahmad"));
+    n3 = ft_lstnew(ft_strdup("farah"));
+    n4 = ft_lstnew(ft_strdup("saif"));
+	
+	n1->next = n2;
+	n2->next = n3;
+	n3->next = n4;
+	n4->next = NULL;
+
+	ft_lstclear(&n3, free);
+
+	t_list *temp = n1;
+	for(int i = 0;i <= 4;i++)
+	{
+		printf("%s ",temp->content);
+		temp = temp->next;
+	}
+	ft_lstclear(&n1, free);
+	return 0;
 }

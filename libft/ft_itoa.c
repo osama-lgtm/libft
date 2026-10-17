@@ -36,29 +36,32 @@ char	*ft_itoa(int n)
 	int			i;
 	char		*str;
 
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	i = 0;
 	count = ft_count(n);
-	str = malloc(count--);
+	str = malloc(count + 1);
 	if (!str)
 		return (NULL);
+	str[count] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
 		n *= -1;
 	}
-	while (count >= 0)
+	if (n == 0)
+		str[0] = '0';
+	while (n > 0)
 	{
-		if (str[count] == '-')
-			break ;
-		str[count] = '0' + n % 10;
+		str[--count] = '0' + n % 10;
 		n = n / 10;
-		count--;
 	}
 	return (str);
 }
 /*
 int main()
 {
-    int a = 12;
+    int a = -12312;
     printf("%s",ft_itoa(a));
-}*/
+}
+*/

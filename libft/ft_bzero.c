@@ -28,7 +28,7 @@ void	ft_bzero(void *s, size_t n)
 int main()
 {
     int s[5] = {1, 2, 3, 4, 5};
-    ft_bzero(s, sizeof(s));
+    ft_bzero(s, sizeof(char) * 4);
     for(int i = 0; i < 5; i++)
     {
         printf("%d ", s[i]);

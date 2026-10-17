@@ -16,8 +16,6 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	if (!content)
-		return (NULL);
 	new = malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
@@ -29,21 +27,20 @@ t_list	*ft_lstnew(void *content)
 /*
 int main()
 {
-    t_list *head;
     t_list *n1;
     t_list *n2;
     t_list *n3;
-    head = n1;
     n1->next = n2;
     n2->next = NULL;
-    n1->content = "osama";
-    n2->content = "fares";
+    n1 = ft_lstnew("osama");
+    n2 = ft_lstnew("farah");
     n3 = ft_lstnew("ahamd");
-    ft_lstadd_front(&head, n3);
-    while(head)
+    ft_lstadd_front(&n1, n3);
+    while(n1)
     {
-        printf("%s\n",head->content);
-        head = head->next;
+        printf("%s\n",n1->content);
+        n1 = n1->next;
     }
     return 0;
-}*/
+}
+*/

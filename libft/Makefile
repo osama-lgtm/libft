@@ -8,20 +8,25 @@ ft_calloc.c   ft_memchr.c   ft_strchr.c   ft_strnstr.c	ft_isalnum.c\
 ft_memcmp.c   ft_strdup.c   ft_strrchr.c	ft_isalpha.c  ft_memcpy.c\
 ft_strjoin.c  ft_strtrim.c	ft_isascii.c  ft_memmove.c  ft_strlcpy.c  ft_substr.c\
 
-OBJ = .c = .o
+
+OBJ = $(SRCS:.c=.o)
 
 NAME = libft.a
 
 all: $(NAME)
 
-%.c : %.o
-	$(CC) $(CFLAGS) .c
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f *.o
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) main
+	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 .PHONY: re clean fclean all
